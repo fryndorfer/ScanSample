@@ -5,13 +5,14 @@
 			 x:Class="ScanSample.Views.MainPage"
 			 x:DataType="vm:MainViewModel"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui">
+             xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+             Unloaded="ContentPage_Unloaded">
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}" />
     </ContentPage.Behaviors>
     <Grid RowDefinitions="*,100" HorizontalOptions="Center">
         <scanner:CameraView x:Name="myCameraView" Grid.Row="0" HeightRequest="500" WidthRequest="300"
                             CameraEnabled="{Binding IsCameraEnabled}" OnDetectionFinishedCommand="{Binding DetectionFinishedCommand}"
-                            PoolingInterval="2000" Unloaded="myCameraView_Unloaded" PauseScanning="{Binding IsPauseScanning}" />
+                            PoolingInterval="2000" PauseScanning="{Binding IsPauseScanning}" />
     </Grid>
 </ContentPage>

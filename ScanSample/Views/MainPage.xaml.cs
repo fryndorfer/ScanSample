@@ -8,15 +8,15 @@ public partial class MainPage : ContentPage
 		BindingContext = vm;
 	}
 
-    private void myCameraView_Unloaded(object sender, EventArgs e)
+    private void ContentPage_Unloaded(object sender, EventArgs e)
     {
-		try
-		{
-			myCameraView.Handler.DisconnectHandler();
-		}
-		catch (Exception)
-		{
+        try
+        {
+            myCameraView.Handler?.DisconnectHandler();
+        }
+        catch (Exception)
+        {
 
-		}
+        }
     }
 }
